@@ -342,7 +342,7 @@ background-color: red;
         <div> 标签选择器</div>
     ```
     
-<div style="background-color: red;"> 标签选择器</div>
+    <div style = "background-color: red;"> 标签选择器 </div>
     
    - 2.并集选择器
 
@@ -354,8 +354,8 @@ background-color: red;
           <div>第一个段落</div>
           <p>第二个段落</p>
       ```
-      <div style="color: red;">第一个段落</div>
-            <p style="color: red;">第二个段落</p>
+     <div style="color: red;">第一个段落</div>
+     <p style="color: red;">第二个段落</p>
    - 3.全局选择器
   
      在css中设置 为：
