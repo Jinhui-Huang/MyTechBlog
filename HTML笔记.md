@@ -154,7 +154,7 @@ table>tr*4>td*3
 （2） 制作合并行，合并列  ，既合并行 又合并列的  表格
 <br>做题步骤：
 <br>1.先确定表格里 行的数量
-<br>2.载确定每行里 单元格的数量
+<br>2.再确定每行里 单元格的数量
 <br>3.最后确定每个单元格的属性（跨行，跨列，既跨行又跨列，没属性）
 ```html
 
@@ -315,7 +315,8 @@ background-color: red;
 </style>
 ```
 `行内样式优先级 大于 内部样式！`
-<br>缺点：1.代码不能重用率不高 2.修改麻烦，扩展性不够好 3.样式与表现没有完全分
+<br>缺点：1.代码重用率不高 2.修改麻烦，扩展性不够好 3.样式与表现没有完全分离
+
 （3）外部样式
 将所有的样式代码，全部都脱离页面，放到一个单独的 css 文件里去。然后先将样式文件引入到 当前页面，在通过 选择器 作用到指定标签上。
 <br>【将外部文件引入的方式有两种】
@@ -327,3 +328,148 @@ background-color: red;
 ```
 - 3选择器：
 ![xzq.jpg](image/xzq.jpg)
+  - 1.标签选择器      
+    以div为例   在css中设置 为：
+ 
+    ```css
+    
+        div {
+            background-color: red;
+            /*仅设置一个属性也可设置多个属性*/
+        }
+    ```
+    ```html
+        <div> 标签选择器</div>
+    ```
+    <div style="background-color: red;"> 标签选择器</div>
+   - 2.并集选择器
+
+      以p为例   在css中设置 为：
+      ```css
+           div, p{color: red;}
+      ```
+      ```html
+          <div>第一个段落</div>
+          <p>第二个段落</p>
+      ```
+      <div style="color: red;">第一个段落</div>
+            <p style="color: red;">第二个段落</p>
+   - 3.全局选择器
+  
+     在css中设置 为：
+     ```css
+     * {margin: 0;  padding: 0;}
+     ```
+   - 4.类选择器
+    
+     以p标签为例 在css中设置为：
+     ```css
+          .cls01{color: green;}
+     ```
+     ```html
+      <p class="cls01">绿色</p>
+     ```
+     <p style="color: green;">绿色</p>
+   - 5.交集选择器
+    
+     以p标签为例 在css中设置为：
+     ```css
+        p.a.b{ color: red; font-weight: bold;}
+     ```
+     ```html
+        <p class="a b">红色粗体文本</p>
+     ```
+     <p class="a b" style="color: red; font-weight: bold;">红色粗体文本</p>
+   - 6.ID选择器
+    
+     以p标签为例 在css中设置为：
+        ```css
+            #p1{color:red;}
+        ```
+        ```html
+            <p id="p1">红色</p>
+        ```
+        <p id="p1" style="color:red;">红色</p>
+   - 7.属性选择器
+     以 3*4的table表格为例 在css中设置为：
+        ```css
+            td[rowspan="2"]{
+		    /*拥有跨行属性的表格且跨两行才能变为蓝色*/
+		    color:blue; 
+        } 
+        ```
+        ```html
+        
+        <tr>
+            <td>0000</td>
+            <td rowspan="2">0000</td>
+            <td>0000</td>
+        </tr>
+        ```
+   - 8.后代选择器
+    
+     以h标签为例 在css中设置为：
+        ```css
+           h1 em {color:red;}
+        ```
+        ```html
+        <h1>This is a <em>important</em> heading</h1>
+		   <p>This is a <em>important</em> paragraph.</p>
+        ```
+        <h1>This is a <em style="color:red;">important</em> heading</h1>
+        <p>This is a <em>important</em> paragraph.</p>
+   - 9.子代选择器
+    
+     以h标签为例 在css中设置为：
+     ```css
+        .parent > p {color: red;}
+     ``` 
+     ```html
+        <div class="parent">
+  		    <h2>Title</h2>
+  		    <p>Paragraph 1</p>
+  		    <p>Paragraph 2</p>
+		      </div>
+     ```
+     <div class="parent">
+        <h2>Title</h2>
+        <p style="color: red;">Paragraph 1</p>
+        <p style="color: red;">Paragraph 2</p>
+        </div>
+   - 10.相邻兄弟选择器 
+        
+     以uli标签为例 在css中设置为：
+        ```css
+            li + p {font-weight:bold;}
+            /*紧挨li标签后的P标签会应用此样式*/
+        ```
+        ```html 
+        <div>
+            <ul>
+                <li>List item 1</li>
+                <li>List item 2</li>
+                <p>List item 3</p>
+                <li>List item 4</li>
+            </ul>
+            <ol>
+                <p>List item 4</p>
+                <li>List item 1</li>
+                <li>List item 2</li>
+                <li>List item 3</li>
+            </ol>
+        </div>
+        ```
+        <div>
+            <ul>
+                <li>List item 1</li>
+                <li>List item 2</li>
+                <p style="font-weight:bold;">List item 3</p>
+                <li>List item 4</li>
+            </ul>
+            <ol>
+                <p>List item 1</p>
+                <li>List item 2</li>
+                <li>List item 3</li>
+                <li>List item 4</li>
+            </ol>
+        </div>
