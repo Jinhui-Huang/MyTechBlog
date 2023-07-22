@@ -92,9 +92,11 @@ uri/url?名字=值&名字=值&名字=值
 ```                            
 ### 3.超文本标签：
 <br>图片标签：
-  <img src="图片的位置路径"
-  alt="图片加载失败后，在图片的位置上显示的文字"
-  title="鼠标悬浮的时候显示的文字" />
+```html
+<img src="图片的位置路径"
+     alt="图片加载失败后，在图片的位置上显示的文字"
+     title="鼠标悬浮的时候显示的文字"/>
+```
 ```html
 <img src="img/aaa.png"
      alt="是一个企鹅"
@@ -232,7 +234,7 @@ table>tr*4>td*3
   - 介绍表单元素：
   1. `文本框：  <input />
     type="text" 设置表单元素类型
-    name="wd"  存储用户输入的信息         重要
+    name="wd"  存储用户输入的信息 (重要属性) 
     placeholder="显示提示信息"
     value="12306" 表单元素的默认值
     maxlength="6" 限制用户输入的信息长度`
@@ -254,19 +256,20 @@ table>tr*4>td*3
 ```html
 <select name="year">
     <option value="2002" selected>2002</option>
+</select>
 ```
   6. `文件域：
      type="file"
      name="fileName"
     使用场合：文件的上传 下载操作`
   7. 文本域：
-	```html
-  <textarea name="areaName"
+```html
+<textarea name="areaName"
      readonly="readonly"
      style="height: 100px; width: 200px;resize: none;" >
      欢迎使用本产品，请遵守平台规定！
      </textarea>
-    ```
+```
   8. `隐藏域：
      type="hidden"
      name="tn"
@@ -309,14 +312,16 @@ background-color: red;
 }
 </style>
 ```
-行内样式优先级 大于 内部样式！
+`行内样式优先级 大于 内部样式！`
 <br>缺点：1.代码不能重用率不高 2.修改麻烦，扩展性不够好 3.样式与表现没有完全分
 （3）外部样式
-将所有的样式代码，全部都脱离页面，放到一个单独的 css 文件里去。然后先将样式文件引入到 当前页面，在通过 选择器 作用到指定标签上。【将外部文件引入的方式有两种】
+将所有的样式代码，全部都脱离页面，放到一个单独的 css 文件里去。然后先将样式文件引入到 当前页面，在通过 选择器 作用到指定标签上。
+<br>【将外部文件引入的方式有两种】
 ```html
 <style type="text/css" >
 @import url("../css/css01.css");
 </style>
-<link
-rel="stylesheet" href="../css/css01.css" />
+<link rel="stylesheet" href="../css/css01.css" />
 ```
+- 3选择器：
+![xzq.jpg](image/xzq.jpg)
