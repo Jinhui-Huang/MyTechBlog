@@ -341,7 +341,9 @@ background-color: red;
     ```html
         <div> 标签选择器</div>
     ```
+    
     <div style="background-color: red;"> 标签选择器</div>
+    
    - 2.并集选择器
 
       以p为例   在css中设置 为：
