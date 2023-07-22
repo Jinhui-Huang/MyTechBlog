@@ -5,12 +5,13 @@
 
 - a.url :统一资源定位符 “网址”----网络之间的地址。
 例：https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png 
-<br>
+
 【url格式】
 `https://ip+端口/项目名?值`<br>
 https://www.baidu.com/s?wd=mayun
-<br>
+
 uri: 统一资源标识符  ----本项目内地址 `img/aa.png`
+
 - b.http1.1协议：===“交通法规”
   三大特定 :
   - `单向性` ——   网络之间通信 一定是先由客户端 向服务器发送请求，再由服务器给出响应。
