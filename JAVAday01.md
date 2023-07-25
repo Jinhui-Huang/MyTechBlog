@@ -80,6 +80,8 @@ JAVA_HOME: Program Files\java\jdk1.8.0_141
 (1. 减少操作path。2.为后期tomcat服务器做准备。)
 
 path：%JAVA_HOME%\bin
+
+classpath ：当前电脑中存储字节码文件的路径------无论在哪个位置，都可以直接操作字节码文件
 ### 10.输出
 ```java
 public class Demo1{
