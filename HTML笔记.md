@@ -327,7 +327,7 @@ background-color: red;
 <link rel="stylesheet" href="../css/css01.css" />
 ```
 - 3选择器：
-![xzq.jpg](image/xzq.jpg)
+![xzq.jpg](img/xzq.jpg)
   - 1.标签选择器      
     以div为例   在css中设置 为：
  
