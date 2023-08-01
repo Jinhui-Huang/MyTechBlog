@@ -1,5 +1,21 @@
 # Java数据类型知识点
 
+<!-- TOC -->
+
+* [1. 变量](#1-变量)
+    * [(1). 什么是变量](#1-什么是变量)
+    * [(2). 为什么要使用变量](#2-为什么要使用变量)
+    * [(3). 使用变量](#3-使用变量)
+* [2. 常量](#2-常量)
+* [3. 变量类型](#3-变量类型)
+* [4. 标识符](#4-标识符)
+* [5. 赋值:](#5-赋值)
+* [6. 基本数据类型之间的转换:](#6-基本数据类型之间的转换)
+* [7. Scanner 工具类:](#7-scanner-工具类)
+* [8. 介绍字符编码:](#8-介绍字符编码)
+
+<!-- TOC -->
+
 ## 1. 变量
 
 ### (1). 什么是变量
@@ -79,6 +95,7 @@ java中变量类型分为:
 - Byte, short, char 都是最小类型, 三者之间不进行转换
 - 由小到大 (byte short char) int long float double
 - `大类型转小类型`: 需要进行强制类型转换 如:
+
 ```java
 
 public class Demo {
@@ -90,13 +107,16 @@ public class Demo {
 }
 
   ```
+
 - `小类型转大类型`: 自动进行转换. 如: int a = '张';
 - `java程序默认整数是int类型`, 但是当整数值超出int的赋值范围, 需要显示表示long类型 `long l = 12345678900L;`
 - `java程序默认小数是double类型`, 但是想让float类型进行存储, 需要显示表示float类型 `float f = (float) 23.56;`
-或者 `float f = 23.56F;`
+  或者 `float f = 23.56F;`
 
 ## 7. Scanner 工具类:
+
 程序输入
+
 ```java
 package com.itstudy;
 
@@ -107,35 +127,36 @@ import java.util.Scanner;
  */
 public class Test03 {
 
-  /**
-   * 借助Scanner实现接受用户输入姓名, 年龄, 成绩
-   * 然后将接受到的信息输出
-   * @param args
-   * */
-  public static void main(String[] args) {
-    /*
-     * 创建Scanner对象, 叫input, 借组于new关键字创建的
+    /**
+     * 借助Scanner实现接受用户输入姓名, 年龄, 成绩
+     * 然后将接受到的信息输出
+     * @param args
      * */
-    Scanner input = new Scanner(System.in);
-    System.out.println("输入姓名");
-    String name = input.next();
-    System.out.println("输入年龄");
-    int age = input.nextInt();
-    System.out.println("输入成绩");
-    double grade = input.nextDouble();
-    System.out.println("输入性别");
-    String sex = input.next();
+    public static void main(String[] args) {
+        /*
+         * 创建Scanner对象, 叫input, 借组于new关键字创建的
+         * */
+        Scanner input = new Scanner(System.in);
+        System.out.println("输入姓名");
+        String name = input.next();
+        System.out.println("输入年龄");
+        int age = input.nextInt();
+        System.out.println("输入成绩");
+        double grade = input.nextDouble();
+        System.out.println("输入性别");
+        String sex = input.next();
 
-    System.out.println("姓名:" + name);
-    System.out.println("年龄:" + age);
-    System.out.println("成绩:" + grade);
-    System.out.println("性别:" + sex);
-  }
+        System.out.println("姓名:" + name);
+        System.out.println("年龄:" + age);
+        System.out.println("成绩:" + grade);
+        System.out.println("性别:" + sex);
+    }
 }
 
 ```
 
-## 8. 介绍字符编码: 
->java语言是Unicode编码方式. 国际通用字符集, 融合了目前人类使用的所有字符. 为每个字符分配唯一的字符码. 
-Unicode编码方式是一个字符占两个字节, 但不是固定的, 比如UTF-8一个字符最小占一字节, 最大占六字节
+## 8. 介绍字符编码:
+
+> java语言是Unicode编码方式. 国际通用字符集, 融合了目前人类使用的所有字符. 为每个字符分配唯一的字符码.
+> Unicode编码方式是一个字符占两个字节, 但不是固定的, 比如UTF-8一个字符最小占一字节, 最大占六字节
 
