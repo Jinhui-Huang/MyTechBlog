@@ -33,7 +33,13 @@ package com.itstudy;
 public class Person() {
     /*相同属性*/
     private String name;
-
+    
+    public Person() {
+        
+    }
+    public Person(String name) {
+        this.name = name;
+    }
     /*共同行为*/
     public void eat() {
         System.out.println(name + "在吃饭");
@@ -51,4 +57,13 @@ public class Person() {
         this.name = name;
     }
 }
+
+public class Test() {
+    public static void main(String[] args) {
+        Person person = new Person("李四");
+        person.eat();
+        person.study();
+    }
+}
+
 ```
