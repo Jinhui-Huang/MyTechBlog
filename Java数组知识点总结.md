@@ -80,3 +80,127 @@
   - `栈` (局部 基本数据类型; 引用数据类型的地址) --- 栈里又分很多个方法区, 一个方法执行完, 对应的方法区立刻销毁.
   到目前位置学到的变量`全是局部变量` (`方法里声明的变量就是局部变量`)
   - `堆`: 引用数据类型. ---不再使用的时候, 交给垃圾回收机制
+
+### 6. 数组例题分析
+#### (1). 数组求最值
+```java
+public class Demo {
+    private static void getMax() {
+        int[] nums = {23, 9, 45, 93, 6, 72, 55, 2, 78};
+        /*暂定一个最大值, 就是数组的第一个元素, 一定不要额外带入其他数进入数组比较*/
+        /*int max = nums[0];*/
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                if (nums[j] < nums[i]) {
+                    int temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                }
+            }
+
+        }
+        System.out.println(Arrays.toString(nums));
+        System.out.println("最大数为: " + nums[nums.length-1]);
+    }
+}
+```
+### (2). 查找数组内容位置
+```java
+public class Demo {
+    private static void findIndex() {
+        int[] nums = {23, 9, 45, 93, 6, 72, 55, 2, 78};
+        System.out.println("输入你要查找的数: ");
+        Scanner input = new Scanner(System.in);
+        int num = input.nextInt();
+        for (int i = 0; i < nums.length; i++) {
+            if (num == nums[i]) {
+                System.out.println("存在!下标是: " + i);
+                return;
+            }
+        }
+        System.out.println("不存在该数");
+    }
+}
+```
+
+### (3). 数组添加数据
+```java
+public class Demo{
+    private static void addNum02() {
+        int oldCapacity = 10;
+        int newCapacity;
+        int size = 0;
+        int[] nums = new int[oldCapacity];
+        
+        /*控制台接收一个数, 同时再接收插入的下标位置*/
+        Scanner input = new Scanner(System.in);
+        System.out.println("请输入一个数字添加(0结束): ");
+        while (true) {
+            int num = input.nextInt();
+            if (num == 0) {
+                break;
+            }else if (nums[oldCapacity - 1] != 0) {
+                newCapacity = (int) (oldCapacity * 1.5);
+                oldCapacity = newCapacity;
+                int[] newNums = new int[oldCapacity];
+                for (int i = 0; i < nums.length; i++) {
+                    newNums[i] = nums[i];
+                }
+                nums = newNums;
+            }
+            nums[size] = num;
+            size++;
+            System.out.println("请输入一个数字添加(0结束): ");
+        }
+        StringJoiner sj = new StringJoiner(", ", "[", "]");
+        for (int i = 0; i < size; i++) {
+            sj.add(String.valueOf(nums[i]));
+        }
+        System.out.println(sj);
+    }
+}
+```
+
+### 7. Main方法详解
+Main方法注意事项: 
+- `Main方法是特殊的方法`
+- `public static void main(String[] args){}` 必须是这个格式
+- main方法可不可以有重载方法吗?
+  - 可以有, 但是其他的重载方法, 被视为`普通方法`
+  - 有重载方法后, 程序就有多个入口了吗? --- 不是, `还是仍然只有一个入口`
+- 参数: `字符串类型的数组`
+  - 作用: 程序运行时, 可以临时, 动态的传递一个信息变量进入
+
+### 8. 可变参数
+- 可变参数: 指的是参数的数量不确定, 当作数组去使用
+- 为什么需要可变参数
+
+
+### 9. Arrays工具类
+- 作用: 帮助我们更方便的操作数组
+
+### 10. 二维数组
+- 一维数组: 元素是一个普通变量, 通过一个下标就可以锁定一个元素
+- 二维数组: 元素是一个数组, 两个下标才能锁定一个具体的元素
+#### (1). 使用二维数组: 
+- 声明二维数组: `int[][] arr;`
+- 为二维数组分配空间: `arr = new int[3][4];`, 第二个中括号可以不指定具体数值, 但是第一个中括号`必须指定具体数值`
+- 声明空间同时分配空间: `int[][] arr02 = new int[3][]`
+- 赋值: 
+  - `arr[0] = new int[]{1, 2, 3, 4};`
+  - `int[] nums = {1, 2, 3, 4};` `arr[1] = nums;`
+- 声明分配空间同时赋值: 
+  - `int[][] arr03 = {{11, 22, 33}, {9, 8, 7, 6}, {10, 20}}`
+- 使用二维数组
+```java
+public class Demo() {
+    public static void main(String[] args) {
+        int[][] arr03 = {{11, 22, 33}, {9, 8, 7, 6}, {10, 20}};
+        for (int i = 0; i < arr03.length; i++) {
+            for (int j = 0; j < arr03[i].length; j++) {
+                System.out.println(arr03[i][j]);
+            }    
+        }
+    }
+}
+```
